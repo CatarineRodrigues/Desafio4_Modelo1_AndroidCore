@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cadastrarProdutosFragment">
+
+    <fragment
+        android:id="@+id/cadastrarProdutosFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.CadastrarProdutosFragment"
+        android:label="fragment_cadastrar_produtos"
+        tools:layout="@layout/fragment_cadastrar_produtos" >
+        <action
+            android:id="@+id/action_cadastrarProdutosFragment_to_listaCadastradosFragment"
+            app:destination="@id/listaCadastradosFragment" />
+        <action
+            android:id="@+id/action_cadastrarProdutosFragment_to_valorTotalFragment"
+            app:destination="@id/valorTotalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalhesProdutoFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.detalhes.DetalhesProdutoFragment"
+        android:label="fragment_detalhes_produto"
+        tools:layout="@layout/fragment_detalhes_produto" />
+    <fragment
+        android:id="@+id/listaCadastradosFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.ListaCadastradosFragment"
+        android:label="fragment_lista_cadastrados"
+        tools:layout="@layout/fragment_lista_cadastrados" >
+        <action
+            android:id="@+id/action_listaCadastradosFragment_to_detalhesProdutoFragment"
+            app:destination="@id/detalhesProdutoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/valorTotalFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.ValorTotalFragment"
+        android:label="fragment_valor_total"
+        tools:layout="@layout/fragment_valor_total" >
+        <action
+            android:id="@+id/action_valorTotalFragment_to_cadastrarProdutosFragment"
+            app:destination="@id/cadastrarProdutosFragment" />
+        <action
+            android:id="@+id/action_valorTotalFragment_to_listaCadastradosFragment"
+            app:destination="@id/listaCadastradosFragment" />
+    </fragment>
+</navigation>
