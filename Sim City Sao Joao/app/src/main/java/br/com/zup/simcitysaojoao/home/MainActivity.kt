@@ -1,4 +1,4 @@
-package br.com.zup.simcitysaojoao
+package br.com.zup.simcitysaojoao.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
