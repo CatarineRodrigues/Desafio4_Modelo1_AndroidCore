@@ -4,6 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splash.SplashActivity">
+    tools:context=".splash.SplashActivity"
+    android:background="@color/azul_escuro">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvNomeApp"
+        android:src="@drawable/img_bandeirinhas"
+        android:layout_margin="@dimen/margem_16"/>
+
+    <TextView
+        android:id="@+id/tvNomeApp"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margem_16"
+        android:textSize="@dimen/font_16"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="@string/nomeApp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
