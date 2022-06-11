@@ -1,10 +1,8 @@
 package br.com.zup.simcitysaojoao.produtos.fragments
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastrarProdutosBinding
 
@@ -17,11 +15,6 @@ class CadastrarProdutosFragment : Fragment() {
     ): View? {
         binding = FragmentCadastrarProdutosBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
     }
 
 

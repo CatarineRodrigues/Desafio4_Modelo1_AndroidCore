@@ -2,6 +2,8 @@ package br.com.zup.simcitysaojoao.produtos
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.ActivityProdutosBinding
 
 class ProdutosActivity : AppCompatActivity() {
@@ -11,5 +13,19 @@ class ProdutosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProdutosBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        acessarActionBar()
+    }
+
+    private fun acessarActionBar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setTitle(R.string.produtos)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            this.finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
