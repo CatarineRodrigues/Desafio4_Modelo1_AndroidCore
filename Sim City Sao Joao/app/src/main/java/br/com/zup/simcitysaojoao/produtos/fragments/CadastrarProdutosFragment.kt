@@ -3,21 +3,23 @@ package br.com.zup.simcitysaojoao.produtos.fragments
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
+import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastrarProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
 import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
 import br.com.zup.simcitysaojoao.produtos.fragments.adapter.ProdutoAdapter
 
 class CadastrarProdutosFragment : Fragment() {
+
     private lateinit var binding: FragmentCadastrarProdutosBinding
-    private val produtoAdapter: ProdutoAdapter by lazy {
-        ProdutoAdapter(arrayListOf())
-    }
     private lateinit var nome: String
     private lateinit var qnt: String
     private lateinit var valorUn: String
     private lateinit var receita: String
+    private val listaNovaProduto = mutableListOf<Produto>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,22 +32,21 @@ class CadastrarProdutosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         clicarBotaoCadastrarNovoProduto()
+        clicarBotaoVerProdutos()
     }
 
     private fun adicionarItemListaProdutos() {
-        val listaNovaProduto = mutableListOf<Produto>()
         recuperarDados()
         if (!verificarCampos()) {
             val produto = Produto(nome = nome, quantidade = qnt.toInt(), valorUnitario = valorUn.toDouble(), receita = receita)
             listaNovaProduto.add(produto)
-            produtoAdapter.atualizarListaProdutos(listaNovaProduto)
         }
-        limparCampos()
     }
 
     private fun clicarBotaoCadastrarNovoProduto() {
         binding.btnCadastrarNovoProduto.setOnClickListener {
             adicionarItemListaProdutos()
+            limparCampos()
         }
     }
 
@@ -75,12 +76,25 @@ class CadastrarProdutosFragment : Fragment() {
 
     private fun clicarBotaoVerProdutos() {
         binding.btnVerProdutos.setOnClickListener {
+            irParaListaCadastrados()
         }
+    }
+
+    private fun irParaListaCadastrados(){
+        val bundle = bundleOf("lista" to listaNovaProduto)
+
+        NavHostFragment.findNavController(this).navigate(
+            R.id.action_cadastrarProdutosFragment_to_listaCadastradosFragment, bundle
+        )
     }
 
     private fun clicarBotaoValorTotal() {
         binding.btnValorTotal.setOnClickListener {
+            irParaValorTotal()
         }
     }
 
+    private fun irParaValorTotal(){
+
+    }
 }
