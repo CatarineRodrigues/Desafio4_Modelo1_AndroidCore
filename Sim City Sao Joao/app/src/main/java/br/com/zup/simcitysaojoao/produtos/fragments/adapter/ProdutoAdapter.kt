@@ -10,7 +10,7 @@ import kotlin.reflect.KFunction1
 
 class ProdutoAdapter(
     private var listaProduto: MutableList<Produto>,
-//    private val clickProduto: KFunction1<Produto, Unit>
+    private val clickProduto: KFunction1<Produto, Unit>
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,12 +22,8 @@ class ProdutoAdapter(
         val produto = listaProduto[position]
         holder.exibirInformacoesView(produto)
         holder.binding.cvItem.setOnClickListener {
-//            clickProduto(produto)
+            clickProduto(produto)
         }
-    }
-
-    private fun ClickCard(){
-
     }
 
     override fun getItemCount(): Int {

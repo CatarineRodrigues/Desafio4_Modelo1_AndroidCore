@@ -33,12 +33,18 @@ class CadastrarProdutosFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         clicarBotaoCadastrarNovoProduto()
         clicarBotaoVerProdutos()
+        clicarBotaoValorTotal()
     }
 
     private fun adicionarItemListaProdutos() {
         recuperarDados()
         if (!verificarCampos()) {
-            val produto = Produto(nome = nome, quantidade = qnt.toInt(), valorUnitario = valorUn.toDouble(), receita = receita)
+            val produto = Produto(
+                nome = nome,
+                quantidade = qnt.toInt(),
+                valorUnitario = valorUn.toDouble(),
+                receita = receita
+            )
             listaNovaProduto.add(produto)
         }
     }
@@ -80,7 +86,7 @@ class CadastrarProdutosFragment : Fragment() {
         }
     }
 
-    private fun irParaListaCadastrados(){
+    private fun irParaListaCadastrados() {
         val bundle = bundleOf("lista" to listaNovaProduto)
 
         NavHostFragment.findNavController(this).navigate(
@@ -94,7 +100,9 @@ class CadastrarProdutosFragment : Fragment() {
         }
     }
 
-    private fun irParaValorTotal(){
-
+    private fun irParaValorTotal() {
+        NavHostFragment.findNavController(this).navigate(
+            R.id.action_cadastrarProdutosFragment_to_valorTotalFragment
+        )
     }
 }
