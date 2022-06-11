@@ -1,25 +1,31 @@
 package br.com.zup.simcitysaojoao.produtos.fragments.adapter
 
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.zup.simcitysaojoao.databinding.ProdutoItemBinding
+import br.com.zup.simcitysaojoao.model.Produto
 
 class ProdutoAdapter(
     private var listaProduto: MutableList<Produto>
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoAdapter.ViewHolder {
-        TODO("Not yet implemented")
+        val binding = ProdutoItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ProdutoAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val produto = listaProduto[position]
+        holder.exibirInformacoesView(produto)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return listaProduto.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
+    class ViewHolder(val binding: ProdutoItemBinding): RecyclerView.ViewHolder(binding.root){
+        fun exibirInformacoesView(produto: Produto){
+            binding.tvQntENomeProduto.text = "${produto.getQuantidade()} - ${produto.getNome()}"
+        }
     }
 }
