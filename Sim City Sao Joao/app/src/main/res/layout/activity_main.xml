@@ -12,6 +12,7 @@
         android:layout_height="@dimen/size_96"
         android:layout_margin="@dimen/margem_16"
         android:src="@drawable/img_bandeirinhas"
+        android:contentDescription="@string/descricao_img_bandeirinhas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

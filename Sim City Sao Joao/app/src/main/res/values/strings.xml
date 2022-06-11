@@ -13,4 +13,9 @@
     <string name="text_cadastrar_novo_produto">Cadastrar novo Produto</string>
     <string name="text_ver_produtos">Ver produtos</string>
     <string name="text_valor_total">Valor total</string>
+    <string name="text_produtos_cadastrados">Produtos Cadastrados</string>
+    <string name="descicao_img_carrinho">Desenho de um carrinho de supermercado vermelho</string>
+    <string name="descricao_img_bandeirinhas">Desenho de um varal de bandeirinhas de festa junina coloridas intercalando entre azul, amarelo e rosa</string>
+    <string name="text_valor_unitario">Valor unitário:</string>
+    <string name="text_quantidade">Quantidade:</string>
 </resources>
