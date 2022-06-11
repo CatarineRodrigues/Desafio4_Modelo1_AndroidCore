@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".produtos.ValorTotalFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/imgCarrinho"
+        android:layout_width="@dimen/size_80"
+        android:layout_height="@dimen/size_80"
+        android:layout_margin="@dimen/margem_16"
+        android:contentDescription="@string/descicao_img_carrinho"
+        android:src="@drawable/img_carrinho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvValorTotal"/>
 
-</FrameLayout>
+
+    <TextView
+        android:id="@+id/tvValorTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margem_16"
+        android:text="@string/msg_valor_total_rs"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_14"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgCarrinho"
+        app:layout_constraintBottom_toTopOf="@id/btnCadastrarNovoProduto"/>
+
+    <Button
+        android:id="@+id/btnCadastrarNovoProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/vermelho"
+        android:text="@string/text_cadastrar_novo_produto"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvValorTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnVerProdutos"
+        android:layout_marginRight="@dimen/margem_16"
+        android:layout_marginLeft="@dimen/margem_16"
+        android:layout_marginTop="@dimen/margem_16"/>
+
+    <Button
+        android:id="@+id/btnVerProdutos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margem_16"
+        android:layout_marginTop="@dimen/margem_16"
+        android:layout_marginRight="@dimen/margem_16"
+        android:backgroundTint="@color/verde"
+        android:text="@string/text_ver_produtos"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCadastrarNovoProduto" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
