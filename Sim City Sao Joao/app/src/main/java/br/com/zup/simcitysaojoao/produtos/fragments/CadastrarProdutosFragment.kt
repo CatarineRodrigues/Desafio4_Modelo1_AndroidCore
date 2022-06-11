@@ -1,5 +1,6 @@
 package br.com.zup.simcitysaojoao.produtos.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -17,5 +18,10 @@ class CadastrarProdutosFragment : Fragment() {
         return binding.root
     }
 
+    private fun clicarBotaoValorTotal() {
+        binding.btnValorTotal.setOnClickListener {
+
+        }
+    }
 
 }
