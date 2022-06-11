@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/valorTotalFragment"
-        android:name="br.com.zup.simcitysaojoao.produtos.ValorTotalFragment"
+        android:name="br.com.zup.simcitysaojoao.produtos.fragments.ValorTotalFragment"
         android:label="fragment_valor_total"
         tools:layout="@layout/fragment_valor_total" >
         <action

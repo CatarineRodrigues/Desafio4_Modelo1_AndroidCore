@@ -1,4 +1,4 @@
-package br.com.zup.simcitysaojoao.produtos
+package br.com.zup.simcitysaojoao.produtos.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,4 +18,5 @@ class ValorTotalFragment : Fragment() {
         binding = FragmentValorTotalBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 }
