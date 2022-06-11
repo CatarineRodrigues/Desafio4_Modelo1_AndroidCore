@@ -23,8 +23,17 @@ class ProdutoAdapter(
         return listaProduto.size
     }
 
-    class ViewHolder(val binding: ProdutoItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun exibirInformacoesView(produto: Produto){
+    fun atualizarListaProdutos(novaLista: MutableList<Produto>) {
+        if (listaProduto.size == 0) {
+            listaProduto = novaLista
+        } else {
+            listaProduto.addAll(novaLista)
+        }
+        notifyDataSetChanged()
+    }
+
+    class ViewHolder(val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun exibirInformacoesView(produto: Produto) {
             binding.tvQntENomeProduto.text = "${produto.getQuantidade()} - ${produto.getNome()}"
         }
     }
