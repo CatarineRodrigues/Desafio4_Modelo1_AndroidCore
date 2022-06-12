@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
+import br.com.zup.simcitysaojoao.LISTA_KEY
 import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.VALORES_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentValorTotalBinding
+import br.com.zup.simcitysaojoao.model.Produto
 
 class ValorTotalFragment : Fragment() {
     private lateinit var binding: FragmentValorTotalBinding
@@ -27,6 +30,11 @@ class ValorTotalFragment : Fragment() {
     }
 
     private fun calcularValorTotal() {
+        val lista = arguments?.getParcelableArrayList<Produto>(VALORES_KEY)
+        if (lista != null) {
+
+        }
+
 
     }
 

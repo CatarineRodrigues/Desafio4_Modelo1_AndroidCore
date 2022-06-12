@@ -9,11 +9,9 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.LISTA_KEY
 import br.com.zup.simcitysaojoao.MSG_PREENCHA_CAMPOS
 import br.com.zup.simcitysaojoao.R
-import br.com.zup.simcitysaojoao.VALORES_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastrarProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
 import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
-import br.com.zup.simcitysaojoao.produtos.fragments.adapter.ProdutoAdapter
 
 class CadastrarProdutosFragment : Fragment() {
 
@@ -90,10 +88,8 @@ class CadastrarProdutosFragment : Fragment() {
     }
 
     private fun irParaListaCadastrados() {
-        val bundle = bundleOf(LISTA_KEY to listaNovaProduto)
-
         NavHostFragment.findNavController(this).navigate(
-            R.id.action_cadastrarProdutosFragment_to_listaCadastradosFragment, bundle
+            R.id.action_cadastrarProdutosFragment_to_listaCadastradosFragment, bundleListaNova()
         )
     }
 
@@ -104,12 +100,12 @@ class CadastrarProdutosFragment : Fragment() {
     }
 
     private fun irParaValorTotal() {
-        val bundle = bundleOf(VALORES_KEY to listaNovaProduto)
-
         NavHostFragment.findNavController(this).navigate(
-            R.id.action_cadastrarProdutosFragment_to_valorTotalFragment, bundle
+            R.id.action_cadastrarProdutosFragment_to_valorTotalFragment, bundleListaNova()
         )
     }
 
-
+    private fun bundleListaNova(): Bundle {
+        return bundleOf(LISTA_KEY to listaNovaProduto)
+    }
 }
