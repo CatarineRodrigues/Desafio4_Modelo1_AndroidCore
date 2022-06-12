@@ -20,7 +20,7 @@ class CadastrarProdutosFragment : Fragment() {
     private lateinit var qnt: String
     private lateinit var valorUn: String
     private lateinit var receita: String
-    private val listaNovaProduto = mutableListOf<Produto>()
+    private var listaNovaProduto = mutableListOf<Produto>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +35,7 @@ class CadastrarProdutosFragment : Fragment() {
         clicarBotaoCadastrarNovoProduto()
         clicarBotaoVerProdutos()
         clicarBotaoValorTotal()
+        recuperarlistaProdutos()
     }
 
     private fun adicionarItemListaProdutos() {
@@ -107,5 +108,21 @@ class CadastrarProdutosFragment : Fragment() {
 
     private fun bundleListaNova(): Bundle {
         return bundleOf(LISTA_KEY to listaNovaProduto)
+    }
+
+    private fun recuperarlistaProdutos() {
+        val lista = arguments?.getParcelableArrayList<Produto>(LISTA_KEY)
+        if (lista != null) {
+            atualizarListaProdutos(lista)
+        }
+    }
+
+    fun atualizarListaProdutos(novaLista: ArrayList<Produto>) {
+        if (listaNovaProduto.size == 0) {
+            listaNovaProduto = novaLista
+        } else if (listaNovaProduto.containsAll(novaLista)){
+        } else {
+            listaNovaProduto.addAll(novaLista)
+        }
     }
 }
