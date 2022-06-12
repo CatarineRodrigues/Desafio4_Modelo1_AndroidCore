@@ -10,4 +10,3 @@ const val MSG_VALOR_TOTAL = "O valor total de todos os produtos é de R$ "
 
 const val LISTA_KEY = "lista"
 const val PRODUTO_KEY = "produto"
-const val VALORES_KEY = "valores"

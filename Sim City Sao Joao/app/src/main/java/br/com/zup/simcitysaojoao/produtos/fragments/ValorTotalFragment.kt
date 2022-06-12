@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.LISTA_KEY
+import br.com.zup.simcitysaojoao.MSG_VALOR_TOTAL
 import br.com.zup.simcitysaojoao.R
-import br.com.zup.simcitysaojoao.VALORES_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentValorTotalBinding
 import br.com.zup.simcitysaojoao.model.Produto
 
 class ValorTotalFragment : Fragment() {
     private lateinit var binding: FragmentValorTotalBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,17 +26,28 @@ class ValorTotalFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recuperarlistaProdutos()
         clicarBotaoCadastrarNovoProduto()
         clicarBotaoVerProdutos()
     }
 
-    private fun calcularValorTotal() {
-        val lista = arguments?.getParcelableArrayList<Produto>(VALORES_KEY)
+    private fun recuperarlistaProdutos() {
+        val lista = arguments?.getParcelableArrayList<Produto>(LISTA_KEY)
         if (lista != null) {
-
+            calcularValorTotal(lista)
         }
+    }
 
+    private fun calcularValorTotal(listaProdutos: ArrayList<Produto>) {
+        var somatoria = 0.0
+        listaProdutos.forEach {
+            somatoria += it.getValorTotal()
+        }
+        exibirValorTotal(somatoria)
+    }
 
+    private fun exibirValorTotal(valorTotal: Double) {
+        binding.tvValorTotal.text = MSG_VALOR_TOTAL + valorTotal
     }
 
     private fun clicarBotaoCadastrarNovoProduto() {
