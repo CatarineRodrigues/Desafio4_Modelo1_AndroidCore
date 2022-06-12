@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.*
 import br.com.zup.simcitysaojoao.databinding.FragmentDetalhesProdutoBinding
 import br.com.zup.simcitysaojoao.model.Produto
 
@@ -28,7 +28,7 @@ class DetalhesProdutoFragment : Fragment() {
     }
 
     private fun recuperarProduto() {
-        val produto = arguments?.getParcelable<Produto>("produto")
+        val produto = arguments?.getParcelable<Produto>(PRODUTO_KEY)
         if (produto != null) {
             exibirDetalhes(produto = produto)
         }
@@ -36,14 +36,14 @@ class DetalhesProdutoFragment : Fragment() {
 
     private fun exibirDetalhes(produto: Produto){
         binding.tvNomeProduto.text = produto.getNome()
-        binding.tvQuantidade.text = "${R.id.tvQuantidade} ${produto.getQuantidade()}"
-        binding.tvValorUnitario.text = "${R.string.text_valor_unitario} ${produto.getValorUnit()}"
-        binding.tvReceita.text = "${R.string.text_receita}: ${produto.getReceita()}"
+        binding.tvQuantidade.text = QUANTIDADE + produto.getQuantidade().toString()
+        binding.tvValorUnitario.text = VALOR_UNIT + produto.getValorUnit().toString()
+        binding.tvReceita.text = RECEITA + produto.getReceita()
     }
 
     private fun favoritarProduto(){
         binding.icFavoritar.setOnClickListener {
-            Toast.makeText(context, "Produto Favoritado!", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, MSG_FAVORITADO, Toast.LENGTH_LONG).show()
         }
     }
 }

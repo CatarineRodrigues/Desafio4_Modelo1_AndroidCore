@@ -6,7 +6,10 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
+import br.com.zup.simcitysaojoao.LISTA_KEY
+import br.com.zup.simcitysaojoao.MSG_PREENCHA_CAMPOS
 import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.VALORES_KEY
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastrarProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
 import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
@@ -73,7 +76,7 @@ class CadastrarProdutosFragment : Fragment() {
     fun verificarCampos(): Boolean {
         val context = context as ProdutosActivity
         return if (nome.isEmpty() || qnt.isEmpty() || valorUn.isEmpty() || receita.isEmpty()) {
-            Toast.makeText(context, "Preencha os campos primeiro", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, MSG_PREENCHA_CAMPOS, Toast.LENGTH_LONG).show()
             true
         } else {
             false
@@ -87,7 +90,7 @@ class CadastrarProdutosFragment : Fragment() {
     }
 
     private fun irParaListaCadastrados() {
-        val bundle = bundleOf("lista" to listaNovaProduto)
+        val bundle = bundleOf(LISTA_KEY to listaNovaProduto)
 
         NavHostFragment.findNavController(this).navigate(
             R.id.action_cadastrarProdutosFragment_to_listaCadastradosFragment, bundle
@@ -101,10 +104,10 @@ class CadastrarProdutosFragment : Fragment() {
     }
 
     private fun irParaValorTotal() {
-        val bundle = bundleOf("valores" to listaNovaProduto)
+        val bundle = bundleOf(VALORES_KEY to listaNovaProduto)
 
         NavHostFragment.findNavController(this).navigate(
-            R.id.action_cadastrarProdutosFragment_to_valorTotalFragment
+            R.id.action_cadastrarProdutosFragment_to_valorTotalFragment, bundle
         )
     }
 

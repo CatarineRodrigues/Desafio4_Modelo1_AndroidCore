@@ -9,6 +9,8 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import br.com.zup.simcitysaojoao.LISTA_KEY
+import br.com.zup.simcitysaojoao.PRODUTO_KEY
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentListaCadastradosBinding
 import br.com.zup.simcitysaojoao.model.Produto
@@ -34,7 +36,7 @@ class ListaCadastradosFragment : Fragment() {
     }
 
     private fun irParaDetalhesProduto(produto: Produto) {
-        val bundle = bundleOf("produto" to produto)
+        val bundle = bundleOf(PRODUTO_KEY to produto)
 
         NavHostFragment.findNavController(this).navigate(
             R.id.action_listaCadastradosFragment_to_detalhesProdutoFragment, bundle
@@ -42,7 +44,7 @@ class ListaCadastradosFragment : Fragment() {
     }
 
     private fun recuperarLista() {
-        val lista = arguments?.getParcelableArrayList<Produto>("lista")
+        val lista = arguments?.getParcelableArrayList<Produto>(LISTA_KEY)
         if (lista != null) {
             atualizarLista(lista)
         }
