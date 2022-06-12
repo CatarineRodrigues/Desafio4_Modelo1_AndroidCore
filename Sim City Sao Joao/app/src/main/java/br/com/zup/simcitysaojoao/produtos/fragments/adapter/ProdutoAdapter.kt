@@ -33,6 +33,7 @@ class ProdutoAdapter(
     fun atualizarListaProdutos(novaLista: ArrayList<Produto>) {
         if (listaProduto.size == 0) {
             listaProduto = novaLista
+        } else if (listaProduto.containsAll(novaLista)){
         } else {
             listaProduto.addAll(novaLista)
         }

@@ -101,6 +101,8 @@ class CadastrarProdutosFragment : Fragment() {
     }
 
     private fun irParaValorTotal() {
+        val bundle = bundleOf("valores" to listaNovaProduto)
+
         NavHostFragment.findNavController(this).navigate(
             R.id.action_cadastrarProdutosFragment_to_valorTotalFragment
         )

@@ -26,6 +26,10 @@ class ValorTotalFragment : Fragment() {
         clicarBotaoVerProdutos()
     }
 
+    private fun calcularValorTotal() {
+
+    }
+
     private fun clicarBotaoCadastrarNovoProduto() {
         binding.btnCadastrarNovoProduto.setOnClickListener {
             irParaCadastrarProdutos()
