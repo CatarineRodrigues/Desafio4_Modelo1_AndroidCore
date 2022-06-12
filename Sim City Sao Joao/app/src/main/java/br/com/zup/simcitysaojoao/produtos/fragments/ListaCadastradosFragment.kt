@@ -31,7 +31,6 @@ class ListaCadastradosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recuperarLista()
-        exibirRecyclerView()
     }
 
     private fun irParaDetalhesProduto(produto: Produto) {
@@ -45,8 +44,13 @@ class ListaCadastradosFragment : Fragment() {
     private fun recuperarLista() {
         val lista = arguments?.getParcelableArrayList<Produto>("lista")
         if (lista != null) {
-            produtoAdapter.atualizarListaProdutos(lista)
+            atualizarLista(lista)
         }
+    }
+
+    private fun atualizarLista(lista: ArrayList<Produto>){
+        produtoAdapter.atualizarListaProdutos(lista)
+        exibirRecyclerView()
     }
 
     private fun exibirRecyclerView() {

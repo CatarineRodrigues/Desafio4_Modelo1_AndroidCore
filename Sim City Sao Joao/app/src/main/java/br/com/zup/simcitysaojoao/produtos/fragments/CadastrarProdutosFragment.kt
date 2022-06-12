@@ -105,4 +105,6 @@ class CadastrarProdutosFragment : Fragment() {
             R.id.action_cadastrarProdutosFragment_to_valorTotalFragment
         )
     }
+
+
 }
