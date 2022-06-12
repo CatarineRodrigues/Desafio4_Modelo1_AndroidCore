@@ -34,14 +34,14 @@ class DetalhesProdutoFragment : Fragment() {
         }
     }
 
-    private fun exibirDetalhes(produto: Produto){
+    private fun exibirDetalhes(produto: Produto) {
         binding.tvNomeProduto.text = produto.getNome()
         binding.tvQuantidade.text = QUANTIDADE + produto.getQuantidade().toString()
         binding.tvValorUnitario.text = VALOR_UNIT + produto.getValorUnit().toString()
         binding.tvReceita.text = RECEITA + produto.getReceita()
     }
 
-    private fun favoritarProduto(){
+    private fun favoritarProduto() {
         binding.icFavoritar.setOnClickListener {
             Toast.makeText(context, MSG_FAVORITADO, Toast.LENGTH_LONG).show()
         }

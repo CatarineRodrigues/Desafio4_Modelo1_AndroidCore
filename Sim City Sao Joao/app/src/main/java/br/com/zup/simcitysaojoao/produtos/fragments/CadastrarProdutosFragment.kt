@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.LISTA_KEY
 import br.com.zup.simcitysaojoao.MSG_PREENCHA_CAMPOS
+import br.com.zup.simcitysaojoao.MSG_PRODUTO_CADASTRADO
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastrarProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
@@ -48,6 +49,7 @@ class CadastrarProdutosFragment : Fragment() {
                 receita = receita
             )
             listaNovaProduto.add(produto)
+            Toast.makeText(context, MSG_PRODUTO_CADASTRADO, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -120,7 +122,7 @@ class CadastrarProdutosFragment : Fragment() {
     fun atualizarListaProdutos(novaLista: ArrayList<Produto>) {
         if (listaNovaProduto.size == 0) {
             listaNovaProduto = novaLista
-        } else if (listaNovaProduto.containsAll(novaLista)){
+        } else if (listaNovaProduto.containsAll(novaLista)) {
         } else {
             listaNovaProduto.addAll(novaLista)
         }

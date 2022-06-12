@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.simcitysaojoao.databinding.ProdutoItemBinding
 import br.com.zup.simcitysaojoao.model.Produto
-import kotlin.reflect.KFunction0
 import kotlin.reflect.KFunction1
 
 class ProdutoAdapter(
@@ -33,7 +32,7 @@ class ProdutoAdapter(
     fun atualizarListaProdutos(novaLista: ArrayList<Produto>) {
         if (listaProduto.size == 0) {
             listaProduto = novaLista
-        } else if (listaProduto.containsAll(novaLista)){
+        } else if (listaProduto.containsAll(novaLista)) {
         } else {
             listaProduto.addAll(novaLista)
         }

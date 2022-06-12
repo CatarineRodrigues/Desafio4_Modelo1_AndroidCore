@@ -50,7 +50,7 @@ class ListaCadastradosFragment : Fragment() {
         }
     }
 
-    private fun atualizarLista(lista: ArrayList<Produto>){
+    private fun atualizarLista(lista: ArrayList<Produto>) {
         produtoAdapter.atualizarListaProdutos(lista)
         exibirRecyclerView()
     }
