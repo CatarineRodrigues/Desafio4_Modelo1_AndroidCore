@@ -9,6 +9,7 @@ import android.widget.Toast
 import br.com.zup.simcitysaojoao.*
 import br.com.zup.simcitysaojoao.databinding.FragmentDetalhesProdutoBinding
 import br.com.zup.simcitysaojoao.model.Produto
+import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
 
 class DetalhesProdutoFragment : Fragment() {
     private lateinit var binding: FragmentDetalhesProdutoBinding
@@ -23,6 +24,7 @@ class DetalhesProdutoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.text_detalhes_do_produto)
         recuperarProduto()
         favoritarProduto()
     }

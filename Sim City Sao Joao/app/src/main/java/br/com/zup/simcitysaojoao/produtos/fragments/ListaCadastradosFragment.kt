@@ -14,6 +14,7 @@ import br.com.zup.simcitysaojoao.PRODUTO_KEY
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.databinding.FragmentListaCadastradosBinding
 import br.com.zup.simcitysaojoao.model.Produto
+import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
 import br.com.zup.simcitysaojoao.produtos.fragments.adapter.ProdutoAdapter
 
 class ListaCadastradosFragment : Fragment() {
@@ -32,6 +33,7 @@ class ListaCadastradosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produtos)
         recuperarLista()
     }
 

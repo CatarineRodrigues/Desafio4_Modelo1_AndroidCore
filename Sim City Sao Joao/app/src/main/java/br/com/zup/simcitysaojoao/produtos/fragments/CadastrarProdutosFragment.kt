@@ -33,6 +33,7 @@ class CadastrarProdutosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as ProdutosActivity).supportActionBar?.title = getString(R.string.produtos)
         clicarBotaoCadastrarNovoProduto()
         clicarBotaoVerProdutos()
         clicarBotaoValorTotal()
