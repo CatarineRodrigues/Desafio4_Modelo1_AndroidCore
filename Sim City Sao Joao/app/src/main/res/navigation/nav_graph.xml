@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/detalhesProdutoFragment"
         android:name="br.com.zup.simcitysaojoao.produtos.fragments.detalhes.DetalhesProdutoFragment"
-        android:label="fragment_detalhes_produto"
+        android:label="@string/text_detalhes_do_produto"
         tools:layout="@layout/fragment_detalhes_produto" />
     <fragment
         android:id="@+id/listaCadastradosFragment"
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/valorTotalFragment"
         android:name="br.com.zup.simcitysaojoao.produtos.fragments.ValorTotalFragment"
-        android:label="fragment_valor_total"
+        android:label="@string/text_valor_total"
         tools:layout="@layout/fragment_valor_total" >
         <action
             android:id="@+id/action_valorTotalFragment_to_cadastrarProdutosFragment"
