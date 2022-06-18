@@ -6,10 +6,7 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
-import br.com.zup.simcitysaojoao.LISTA_KEY
-import br.com.zup.simcitysaojoao.MSG_PREENCHA_CAMPOS
-import br.com.zup.simcitysaojoao.MSG_PRODUTO_CADASTRADO
-import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.*
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastrarProdutosBinding
 import br.com.zup.simcitysaojoao.model.Produto
 import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
@@ -51,13 +48,13 @@ class CadastrarProdutosFragment : Fragment() {
             )
             listaNovaProduto.add(produto)
             Toast.makeText(context, MSG_PRODUTO_CADASTRADO, Toast.LENGTH_LONG).show()
+            limparCampos()
         }
     }
 
     private fun clicarBotaoCadastrarNovoProduto() {
         binding.btnCadastrarNovoProduto.setOnClickListener {
             adicionarItemListaProdutos()
-            limparCampos()
         }
     }
 
@@ -76,7 +73,6 @@ class CadastrarProdutosFragment : Fragment() {
     }
 
     fun verificarCampos(): Boolean {
-        val context = context as ProdutosActivity
         return if (nome.isEmpty() || qnt.isEmpty() || valorUn.isEmpty() || receita.isEmpty()) {
             Toast.makeText(context, MSG_PREENCHA_CAMPOS, Toast.LENGTH_LONG).show()
             true
@@ -87,6 +83,14 @@ class CadastrarProdutosFragment : Fragment() {
 
     private fun clicarBotaoVerProdutos() {
         binding.btnVerProdutos.setOnClickListener {
+            verificarListaVazia()
+        }
+    }
+
+    private fun verificarListaVazia() {
+        if (listaNovaProduto.isEmpty()) {
+            Toast.makeText(context, MSG_CADASTRE_PRODUTO_PRIMEIRO, Toast.LENGTH_LONG).show()
+        } else {
             irParaListaCadastrados()
         }
     }
