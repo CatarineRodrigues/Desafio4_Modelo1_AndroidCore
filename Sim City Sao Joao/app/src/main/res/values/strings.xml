@@ -15,7 +15,7 @@
     <string name="text_produtos_cadastrados">Produtos Cadastrados</string>
     <string name="descicao_img_carrinho">Desenho de um carrinho de supermercado vermelho</string>
     <string name="descricao_img_bandeirinhas">Desenho de um varal de bandeirinhas de festa junina coloridas intercalando entre azul, amarelo e rosa</string>
-    <string name="text_valor_unitario">Valor unitário:</string>
+    <string name="text_valor_unitario">Valor unitário: R$ 00,00</string>
     <string name="text_quantidade">Quantidade:</string>
     <string name="msg_valor_total_rs">O valor total de todos os produtos é de R$ 00,00</string>
     <string name="text_detalhes_do_produto">Detalhes do produto</string>
